@@ -9,7 +9,7 @@ import { useStateValue } from './StateProvider'
 import { auth } from './firebase'
 
 function App() {
-  const [{ user }, dispatch] = useStateValue()
+  const [, dispatch] = useStateValue()
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -30,7 +30,6 @@ function App() {
       unsubscribe()
     }
   }, [dispatch])
-console.log('The user is >>>', user)
 
   return (
     <Router>
