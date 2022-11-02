@@ -1,23 +1,23 @@
-import './Product.css'
-import React from 'react'
-import { useStateValue } from './StateProvider'
+import "./Product.css";
+import React from "react";
+import { useStateValue } from "./StateProvider";
 
 function Product({ id, title, image, price, rating }) {
   // eslint-disable-next-line
-  const [{}, dispatch] = useStateValue()
+  const [, dispatch] = useStateValue();
 
   const addToBasket = () => {
     dispatch({
-      type: 'ADD_TO_BASKET',
+      type: "ADD_TO_BASKET",
       item: {
-        id,
+        id: Math.random().toString(16),
         title,
         image,
         price,
         rating,
       },
-    })
-  }
+    });
+  };
 
   return (
     <div className='product'>
@@ -44,7 +44,7 @@ function Product({ id, title, image, price, rating }) {
         Add to basket
       </button>
     </div>
-  )
+  );
 }
 
-export default Product
+export default Product;
